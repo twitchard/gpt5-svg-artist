@@ -1,18 +1,15 @@
 "use client";
 
 import { VoiceProvider, ToolCallHandler } from "@humeai/voice-react";
-import Messages from "./Messages";
 import Controls from "./Controls";
 import StartCall from "./StartCall";
-import { ComponentRef, useRef, useState } from "react";
+import { useState } from "react";
 
 export default function ClientComponent({
   accessToken,
 }: {
   accessToken: string;
 }) {
-  const timeout = useRef<number | null>(null);
-  const ref = useRef<ComponentRef<typeof Messages> | null>(null);
   const [svg, setSvg] = useState("<pre>No image yet</pre>");
 
   const handleToolCall: ToolCallHandler = async (message, send) => {
@@ -43,27 +40,13 @@ export default function ClientComponent({
       <VoiceProvider
         onToolCall={handleToolCall}
         onMessage={() => {
-          if (timeout.current) {
-            window.clearTimeout(timeout.current);
-          }
-
-          timeout.current = window.setTimeout(() => {
-            if (ref.current) {
-              const scrollHeight = ref.current.scrollHeight;
-
-              ref.current.scrollTo({
-                top: scrollHeight,
-                behavior: "smooth",
-              });
-            }
-          }, 200);
+          // No longer need message handling since Messages component is removed
         }}
       >
         <div 
           dangerouslySetInnerHTML={{ __html: svg }} 
-          className="mt-4 mx-auto w-96 h-96 flex items-center justify-center border border-gray-300 rounded-lg bg-white shadow-sm overflow-hidden"
+          className="mt-4 mx-auto w-[800px] h-[600px] flex items-center justify-center border border-gray-300 rounded-lg bg-white shadow-sm overflow-hidden"
         />
-        <Messages ref={ref} />
         <Controls />
         <StartCall accessToken={accessToken} />
       </VoiceProvider>
