@@ -88,8 +88,7 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
         >
           <AnimatePresence>
             <div className="w-full max-w-md mx-auto flex flex-col items-center">
-              <div className="mb-2 w-full flex items-center justify-center gap-0.5 text-xs text-muted-foreground">
-                <span className="uppercase tracking-wide">Powered by</span>
+              <div className="mb-2 w-full flex items-center justify-center text-muted-foreground">
                 <HumeLogo height={12} />
               </div>
               <motion.div
