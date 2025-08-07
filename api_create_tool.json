@@ -1,0 +1,5 @@
+{
+  "name": "render_svg",
+  "description": "Call this tool with an SVG string and it will be rendered to the user",
+  "parameters": "{\"type\": \"object\", \"properties\": { \"svg\": { \"type\": \"string\", \"description\": \"An SVG string to render\" } }, \"required\": [ \"svg\" ]}"
+}
