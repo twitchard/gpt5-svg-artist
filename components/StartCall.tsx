@@ -1,6 +1,7 @@
 import { ConnectOptions, useVoice } from "@humeai/voice-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "./ui/button";
+import HumeLogo from "./logos/Hume";
 import { Phone } from "lucide-react";
 import { useMemo, useState } from "react";
 import voicesData from "@/voices.json";
@@ -86,14 +87,19 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
           }}
         >
           <AnimatePresence>
-            <motion.div
-              className="w-full max-w-md mx-auto bg-card border border-border rounded-md p-6 shadow-sm"
-              variants={{
-                initial: { scale: 0.5 },
-                enter: { scale: 1 },
-                exit: { scale: 0.5 },
-              }}
-            >
+            <div className="w-full max-w-md mx-auto flex flex-col items-center">
+              <div className="mb-2 w-full flex items-center justify-center gap-0.5 text-xs text-muted-foreground">
+                <span className="uppercase tracking-wide">Powered by</span>
+                <HumeLogo height={12} />
+              </div>
+              <motion.div
+                className="w-full bg-card border border-border rounded-md p-6 shadow-sm"
+                variants={{
+                  initial: { scale: 0.5 },
+                  enter: { scale: 1 },
+                  exit: { scale: 0.5 },
+                }}
+              >
               <Button
                 className={"z-50 w-full flex items-center justify-center gap-1.5"}
                 onClick={() => {
@@ -162,7 +168,8 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
                   </div>
                 )}
               </div>
-            </motion.div>
+              </motion.div>
+            </div>
           </AnimatePresence>
         </motion.div>
       ) : null}
