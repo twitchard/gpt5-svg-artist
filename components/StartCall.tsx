@@ -159,9 +159,6 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
                         <option key={v.id} value={v.name} />
                       ))}
                     </datalist>
-                    <div className="mt-1 text-xs opacity-60">
-                      Showing up to 4 suggestions. Keep typing to refine.
-                    </div>
                   </div>
                 )}
               </div>
