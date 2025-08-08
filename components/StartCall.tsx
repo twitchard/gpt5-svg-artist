@@ -166,6 +166,17 @@ export default function StartCall({ accessToken }: { accessToken: string }) {
                     </datalist>
                   </div>
                 )}
+
+                <div className="mt-2">
+                  <a
+                    href="https://platform.hume.ai/voices"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-800 underline text-xs"
+                  >
+                    Hume Voice Library
+                  </a>
+                </div>
               </div>
               </motion.div>
             </div>
